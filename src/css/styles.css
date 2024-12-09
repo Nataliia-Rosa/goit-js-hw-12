@@ -1,18 +1,164 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ceddd2a9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 5px 0;
+  color: #555;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search-form input[type='text'] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #81a088;
+  border-radius: 4px;
+  outline: none;
+}
+
+#search-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #6ca58f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#search-form button:hover {
+  background-color: #526657;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.gallery-item {
+  max-width: calc((100% - 24px* 2) / 3);
+}
+
+.photo-card {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 8px 0 rgba(70, 68, 68, 0.8);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+  height: 261px;
+  object-fit: cover;
+}
+
+.photo-card .info {
+  display: flex;
+  gap: 7px;
+  padding: 10px;
+}
+
+.loader {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #d7eadc;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  animation: pulse 1s linear infinite;
+  margin: 0 auto;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #526657;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: scaleUp 1s linear infinite;
+}
+
+.load-more {
+  padding: 10px 20px;
+  background-color: #6ca58f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.load-more:hover {
+  background-color: #526657;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0)
+  }
+
+  60%,
+  100% {
+    transform: translate(-50%, -50%) scale(1)
+  }
+}
+
+@keyframes pulse {
+
+  40%,
+  160%,
+  100% {
+    transform: scale(1)
+  }
+
+  80% {
+    transform: scale(1.2)
+  }
+}
